@@ -10,7 +10,7 @@ local Fetch = loadstring(game:HttpGet("https://raw.githubusercontent.com/Harmoni
 
     function Client:GetService(Service)
         if table.find(Client.Services, Service) then
-            return Fetch("ShadowSamurai720/Services:"..Service..".lua")
+            return Fetch("ShadowSamurai720/ShadowSamurai720:Services:" ..Service..".lua") --https://raw.githubusercontent.com/HarmonicDust/ShadowSamurai720/main/ShadowSamurai720/Services/NotificationService.lua
         end
     end
 
