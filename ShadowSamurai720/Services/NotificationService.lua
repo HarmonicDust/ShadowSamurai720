@@ -22,4 +22,4 @@ local NotificationService = {}
         NotificationService.NotificationModule.SetColor(Color)
     end
 
-return NotificationService
+-- return NotificationService

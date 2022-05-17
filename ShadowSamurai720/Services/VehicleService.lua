@@ -8,4 +8,4 @@ function VehicleService:GetLocalVehiclePacket()
     end
 end
 
-return VehicleService
+-- return VehicleService

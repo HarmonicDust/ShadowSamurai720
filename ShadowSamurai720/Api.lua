@@ -6,11 +6,11 @@ Client.Services = {
     "VehicleService"
 }
 
-Client.Fetch = loadstring(game:HttpGet("https://raw.githubusercontent.com/HarmonicDust/My-Project/main/Functions/Fetch.lua", true))()
+local Fetch = loadstring(game:HttpGet("https://raw.githubusercontent.com/HarmonicDust/My-Project/main/Functions/Fetch.lua", true))()
 
     function Client:GetService(Service)
         if table.find(Client.Services, Service) then
-            return Client.Fetch("ShadowSamurai720/Services:"..Service)
+            return Fetch("ShadowSamurai720/Services:"..Service)
         end
     end
 
