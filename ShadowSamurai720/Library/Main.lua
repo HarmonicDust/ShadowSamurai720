@@ -250,13 +250,7 @@ function Main:Initialize(Name)
     G.Text="Select a tab..."
     G.Font=22
     G.Parent=b
-    local function SWDDR_fake_script() -- ScreenGui.LocalScript 
-        local script = Instance.new('LocalScript', ScreenGui)
     
-        Fetch("ShadowSamurai720/ShadowSamurai720:Library:TabSelection.lua")
-        
-    end
-    coroutine.wrap(SWDDR_fake_script)()
     --local H=Instance.new"LocalScript"
     --H.Source=[[local RunService = game:GetService(\"RunService\")\nlocal TweenService = game:GetService(\"TweenService\")\n\nlocal TabSelection = {}\n\nTabSelection.Selector = script.Parent\nTabSelection.Left = TabSelection.Selector.Arrows.LeftArrow\nTabSelection.Right = TabSelection.Selector.Arrows.RightArrow\nTabSelection.ListLayout = TabSelection.Selector.Arrows.ListLayout\nTabSelection.ArrowPadding = TabSelection.Selector.Arrows.ArrowPadding\nTabSelection.Tabs = TabSelection.Selector.Tabs\n\nRunService.RenderStepped:Connect(function()\n\tTabSelection.ListLayout.Padding = UDim.new(0, TabSelection.Selector.TextBounds.X - 10)\nend)\n\nTabSelection.Selector.MouseEnter:Connect(function()\n\tTweenService:Create(TabSelection.ArrowPadding, TweenInfo.new(0.5, Enum.EasingStyle.Back), {PaddingBottom = UDim.new(0, 2)}):Play()\nend)\n\nTabSelection.Selector.MouseLeave:Connect(function()\n\tTweenService:Create(TabSelection.ArrowPadding, TweenInfo.new(0.5, Enum.EasingStyle.Back), {PaddingBottom = UDim.new(0, -40)}):Play()\nend)\ntask.wait(.2)\nTabSelection.Selector.MouseButton1Down:Connect(function()\n\tTabSelection.Tabs.Visible = not TabSelection.Tabs.Visible\n\tTweenService:Create(TabSelection.Selector, TweenInfo.new(0.175, Enum.EasingStyle.Cubic), {TextSize = 26, TextColor3 = Color3.fromRGB(152, 61, 255)}):Play()\n\ttask.wait(.1)\n\tTweenService:Create(TabSelection.Selector, TweenInfo.new(0.175, Enum.EasingStyle.Cubic), {TextSize = 14, TextColor3 = Color3.fromRGB(255, 255, 255)}):Play()\n\tfor i, v in next, TabSelection.Selector.Parent.Tabs:GetChildren() do\n\t\tfor ii, vv in next, TabSelection.Tabs:GetChildren() do\n\t\t\tif vv:FindFirstChild(\"TabName\") then\n\t\t\t\tvv.TabName.MouseButton1Down:Connect(function()\n\t\t\t\t\tif vv.TabName.Text == v.Name then\n\t\t\t\t\t\tv.Visible = true\n\t\t\t\t\t\tTabSelection.Selector.Text = vv.TabName.Text\n\t\t\t\t\t\tTabSelection.Tabs.Visible = false\n\t\t\t\t\telse\n\t\t\t\t\t\tv.Visible = false\n\t\t\t\t\tend\n\t\t\t\tend)\n\t\t\tend\n\t\tend\n\tend\nend)\n]]
     --H.Parent=G
@@ -376,6 +370,15 @@ function Main:Initialize(Name)
     V.BackgroundColor3=Color3.fromRGB(80,80,80)
     V.Parent=U
     a.Parent=game:GetService"CoreGui"
+
+    local function SWDDR_fake_script() -- ScreenGui.LocalScript 
+        local script = Instance.new('LocalScript', G)
+    
+        Fetch("ShadowSamurai720/ShadowSamurai720:Library:TabSelection.lua")
+        
+    end
+    coroutine.wrap(SWDDR_fake_script)()
+
     return Container
 end
 return Main
