@@ -21,10 +21,27 @@ end)
 TabSelection.Selector.MouseLeave:Connect(function()
 	TweenService:Create(TabSelection.ArrowPadding, TweenInfo.new(0.5, Enum.EasingStyle.Back), {PaddingBottom = UDim.new(0, -40)}):Play()
 end)
-
+task.wait(.2)
 TabSelection.Selector.MouseButton1Down:Connect(function()
 	TabSelection.Tabs.Visible = not TabSelection.Tabs.Visible
 	TweenService:Create(TabSelection.Selector, TweenInfo.new(0.175, Enum.EasingStyle.Cubic), {TextSize = 26, TextColor3 = Color3.fromRGB(152, 61, 255)}):Play()
 	task.wait(.1)
 	TweenService:Create(TabSelection.Selector, TweenInfo.new(0.175, Enum.EasingStyle.Cubic), {TextSize = 14, TextColor3 = Color3.fromRGB(255, 255, 255)}):Play()
+	for i, v in next, TabSelection.Selector.Parent.Tabs:GetChildren() do
+		for ii, vv in next, TabSelection.Tabs:GetChildren() do
+			if vv:FindFirstChild("TabName") then
+				vv.TabName.MouseButton1Down:Connect(function()
+					if vv.TabName.Text == v.Name then
+						v.Visible = true
+						TabSelection.Selector.Text = vv.TabName.Text
+						TabSelection.Tabs.Visible = false
+					else
+						v.Visible = false
+					end
+				end)
+			end
+		end
+	end
 end)
+
+return TabSelection
