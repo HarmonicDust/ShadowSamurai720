@@ -43,5 +43,3 @@ TabSelection.Selector.MouseButton1Down:Connect(function()
 		end
 	end
 end)
-
-return TabSelection

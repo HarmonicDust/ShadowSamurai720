@@ -33,5 +33,3 @@ end)
 Buttons.Button.MouseLeave:Connect(function()
 	TweenService:Create(Buttons.ArrowPadding, TweenInfo.new(0.5, Enum.EasingStyle.Back), {PaddingBottom = UDim.new(0, -40)}):Play()
 end)
-
-return Buttons
